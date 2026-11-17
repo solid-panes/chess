@@ -306,6 +306,9 @@ export default {
         movable: { free: false, color: undefined, showDests: true, events: { after: (from, to) => play(from, to) } },
         premovable: { enabled: false }, draggable: { showGhost: true }
       })
+      // chessground remembers where the board is on the page. The data browser moves things
+      // after the board is drawn (headings arrive late), so measure again at each press.
+      board.addEventListener('pointerdown', () => ground.state.dom.bounds.clear(), true)
       await refresh(false)
       timer = setInterval(() => {
         if (!root.isConnected) { clearInterval(timer); if (ws) ws.close(); if (engine) engine.stop(); return }

@@ -1,0 +1,6 @@
+@prefix chess: <http://purl.org/NET/rdfchess/ontology/> .
+@prefix schema: <http://schema.org/> .
+
+<#game> a chess:ChessGame ;
+    schema:name "New game" ;
+    chess:hasSANRecord "" .
